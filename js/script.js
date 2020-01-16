@@ -50,7 +50,7 @@ function playerMoveBottom() {
 }
 //Function Computer Move
 function computerMove() {
-  computerY += speedballY * 0.85;
+  computerY += speedballY * 0.75;
 }
 //Function Ball Move
 function ballMove() {
@@ -84,7 +84,7 @@ function collision(Y) {
     speedballX = 2;
   } else {
     // Increase speed and change direction if collision succes
-    speedballX *= -1.2;
+    speedballX *= -1.15;
   }
 }
 //Function Draw to image placement and drawing
