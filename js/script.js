@@ -14,6 +14,10 @@ computer.src = "../assets/computer.png";
 ball.src = "../assets/ball.png";
 
 //Variable
+let pScore = document.getElementById("playerScore");
+let cScore = document.getElementById("computerScore");
+let playerScore = 0;
+let computerScore = 0;
 let playerX = 0;
 let playerY = canvas.height / 2 - 50;
 let computerX = canvas.width - 10;
@@ -74,6 +78,14 @@ function ballMove() {
 function collision(Y) {
   // The player does not hit the ball
   if (ballY < Y || ballY > Y + 100) {
+    if (ballX <= 10) {
+      computerScore++;
+      cScore.textContent = computerScore;
+    }
+    if (ballX >= canvas.width - 15) {
+      playerScore++;
+      pScore.textContent = playerScore;
+    }
     // Set ball and players to the center
     ballX = canvas.width / 2;
     ballY = canvas.height / 2;
