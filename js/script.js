@@ -71,7 +71,22 @@ function ballMove() {
   ballY += speedballY;
 }
 //Function Collision
+function collision(Y) {
+  // The player does not hit the ball
+  if (ballY < Y || ballY > Y + 100) {
+    // Set ball and players to the center
+    ballX = canvas.width / 2;
+    ballY = canvas.height / 2;
+    playerY = canvas.height / 2 - 50;
+    computerY = canvas.height / 2 - 50;
 
+    // Reset speed
+    speedballX = 2;
+  } else {
+    // Increase speed and change direction if collision succes
+    speedballX *= -1.2;
+  }
+}
 //Function Draw to image placement and drawing
 function draw() {
   context.drawImage(board, 0, 0);
