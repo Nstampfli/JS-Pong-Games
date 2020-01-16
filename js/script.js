@@ -48,6 +48,29 @@ function playerMoveTop() {
 function playerMoveBottom() {
   playerY += 10;
 }
+//Function Computer Move
+function computerMove() {
+  computerY += speedballY * 0.85;
+}
+//Function Ball Move
+function ballMove() {
+  //Collision top/bottom
+  if (ballY + ball.height > canvas.height || ballY < 0) {
+    speedballY *= -1;
+  }
+  //Collision with Computer
+  if (ballX >= canvas.width - 15) {
+    collision(computerY);
+  }
+  //Collision with Player
+  else if (ballX <= 10) {
+    collision(playerY);
+  }
+  //BallMoove with the time
+  ballX += speedballX;
+  ballY += speedballY;
+}
+//Function Collision
 
 //Function Draw to image placement and drawing
 function draw() {
